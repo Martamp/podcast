@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { ImageStyled, TextStyled } from './PodcastDetail.styled.ts';
+import { ImageStyled, TextStyled, PodcastWrapper, SubtitleStyled, InformationWrapper, DescriptionStyled } from './PodcastDetail.styled.ts';
 import { UseAsyncInformation } from '../../hooks/useAsyncInformation.ts';
 import PodcastContext from '../../context/Podcast.context.tsx';
 
@@ -21,14 +21,17 @@ export const PodcastDetail = ({ entry }: EntryType) => {
   console.log(currentPodcast, podcastDetail);
   return (
     podcastDetail && (
-      <div>
-        <ImageStyled />
-        <div>
+      <PodcastWrapper>
+        <ImageStyled src={currentPodcast.image} alt={currentPodcast.title} />
+        <InformationWrapper>
           <TextStyled>{currentPodcast.title}</TextStyled>
-          <TextStyled>{currentPodcast.author}</TextStyled>
-        </div>
-        <p>{currentPodcast.summary}</p>
-      </div>
+          <em>by {currentPodcast.author}</em>
+        </InformationWrapper>
+        <SubtitleStyled>Description:</SubtitleStyled>
+        <DescriptionStyled>
+          <em>{currentPodcast.summary}</em>
+        </DescriptionStyled>
+      </PodcastWrapper>
     )
   );
 };
