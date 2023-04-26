@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import PodcastContext from '../../context/Podcast.context.tsx';
 import { Card } from '../../components/Card/Card.tsx';
 import { LoadingStyled, TitleStyled, CounterStyled, HeaderStyled, SectionStyled, ListStyled } from './Landing.styled.ts';
 import { UseAsyncInformation } from '../../hooks/useAsyncInformation.ts';
 
 function App() {
-  const { data, getPodcastList, loading } = UseAsyncInformation();
+  const { getPodcastList } = UseAsyncInformation();
+  const { data, loading } = useContext(PodcastContext);
   const [filteredData, setFilteredData] = useState(data);
 
   useEffect(() => {

@@ -2,10 +2,12 @@ import React, { ReactNode, createContext, useContext, useState } from 'react';
 
 export type FunctionType = (...args: Array<any>) => any;
 export type PodcastContextType = {
+  currentPodcast: any;
   data: any;
   podcastDetail: [] | null;
   error: boolean;
   loading: boolean;
+  setCurrentPodcast: FunctionType;
   setData: FunctionType;
   setError: FunctionType;
   setLoading: FunctionType;
@@ -23,14 +25,17 @@ export const PodcastProvider = ({ children }: Props): JSX.Element => {
   const [podcastDetail, setPodcastDetail] = useState(null);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [currentPodcast, setCurrentPodcast] = useState(null);
 
   return (
     <PodcastContext.Provider
       value={{
+        currentPodcast,
         data,
         podcastDetail,
         error,
         loading,
+        setCurrentPodcast,
         setData,
         setError,
         setLoading,

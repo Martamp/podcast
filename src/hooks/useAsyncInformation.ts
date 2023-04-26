@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import { parsedData, mapPodcastDetail } from '../utils/Podcast.utils.ts';
+import PodcastContext from '../context/Podcast.context.tsx';
 
 export const UseAsyncInformation = () => {
-  const [data, setData] = useState(null);
-  const [podcastDetail, setPodcastDetail] = useState(null);
-  const [error, setError] = useState(false);
+  const { setData, setPodcastDetail, setError } = useContext(PodcastContext);
 
   const getPodcastList = async () => {
     await fetch('https://itunes.apple.com/us/rss/toppodcasts/limit/=100/genre=1310/json')
@@ -27,8 +25,5 @@ export const UseAsyncInformation = () => {
   return {
     getPodcastList,
     getPodcastDetail,
-    data,
-    podcastDetail,
-    loading: (data === null && !error) || (podcastDetail === null && !error),
   };
 };
