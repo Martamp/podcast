@@ -1,5 +1,6 @@
 import React from 'react';
+import { PodcastDetail } from '../../components/PodcastDetail/PodcastDetail.tsx';
 
 export const DetailsView = () => {
-  return 'hola';
+  return <PodcastDetail />;
 };

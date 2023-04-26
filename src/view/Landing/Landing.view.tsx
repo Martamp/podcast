@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from '../../components/Card.tsx';
+import { Card } from '../../components/Card/Card.tsx';
 import { LoadingStyled, TitleStyled, CounterStyled, HeaderStyled, SectionStyled, ListStyled } from './Landing.styled.ts';
 import { UseAsyncInformation } from '../../hooks/useAsyncInformation.ts';
 
 function App() {
-  const { data, call, loading } = UseAsyncInformation();
+  const { data, getPodcastList, loading } = UseAsyncInformation();
   const [filteredData, setFilteredData] = useState(data);
 
   useEffect(() => {
-    call();
+    getPodcastList();
   }, []);
 
   const handleFilter = (ev) => {

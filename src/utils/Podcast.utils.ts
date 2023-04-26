@@ -8,3 +8,15 @@ export const parsedData = (data) =>
       summary: entry.summary.label,
     };
   });
+
+export const mapPodcastDetail = (data) => {
+  const parsedData = JSON.parse(data.contents).results.slice(1);
+
+  return parsedData.map((entry) => ({
+    id: entry.trackId,
+    title: entry.trackName,
+    time: entry.trackTimeMillis,
+    summary: entry.description,
+    track: entry.episodeUrl,
+  }));
+};
