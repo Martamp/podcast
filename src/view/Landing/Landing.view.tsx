@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PodcastContext from '../../context/Podcast.context.tsx';
 import { Card } from '../../components/Card/Card.tsx';
-import { LoadingStyled, TitleStyled, CounterStyled, HeaderStyled, SectionStyled, ListStyled } from './Landing.styled.ts';
+import { CounterStyled, SectionStyled, ListStyled } from './Landing.styled.ts';
 import { UseAsyncInformation } from '../../hooks/useAsyncInformation.ts';
 
 function App() {
   const { getPodcastList } = UseAsyncInformation();
-  const { data, loading } = useContext(PodcastContext);
+  const { data } = useContext(PodcastContext);
   const [filteredData, setFilteredData] = useState(data);
 
   useEffect(() => {
@@ -27,11 +27,7 @@ function App() {
   const podcasts = filteredData?.length > 0 ? filteredData : data;
 
   return (
-    <div className="App">
-      <HeaderStyled>
-        <TitleStyled>Podcaster</TitleStyled>
-        {loading && <LoadingStyled />}
-      </HeaderStyled>
+    <div>
       <main>
         <SectionStyled>
           <CounterStyled>{data?.length}</CounterStyled>

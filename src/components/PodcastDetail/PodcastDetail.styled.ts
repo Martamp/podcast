@@ -4,6 +4,8 @@ export const ImageStyled = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 8px;
+  justify-self: center;
+  align-self: center;
 `;
 
 export const TextStyled = styled.h3`
@@ -25,11 +27,15 @@ export const InformationWrapper = styled.p`
 export const PodcastWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 300px;
+  height: fit-content;
   padding: 20px;
   box-shadow: 0 0 10px 5px #d5d5d5;
   border-radius: 8px;
+  flex-grow: 1;
 `;
 
-export const DescriptionStyled = styled.p``;
+export const DescriptionStyled = styled.p`
+  word-wrap: break-word;
+  margin: 8px 0 0;
+`;
