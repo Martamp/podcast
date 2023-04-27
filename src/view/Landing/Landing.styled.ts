@@ -8,7 +8,7 @@ export const CounterStyled = styled.p`
   padding: 0.25rem;
   font-weight: bold;
   color: white;
-  border-radius: 20%;
+  border-radius: 15%;
 `;
 
 export const SectionStyled = styled.section`
@@ -23,4 +23,10 @@ export const ListStyled = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
+`;
+
+export const InputStyled = styled.input`
+  padding: 10px;
+  border: 1px solid #f4f4f4;
+  margin-left: 10px;
 `;

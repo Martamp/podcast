@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { TitleStyled, TitleWrapper, TrackListStyled, TableWrapper, TrackElementStyled, TableColumnTitleStyled, TableContent, LinkStyled, ListStyled } from './TrackList.styled.ts';
+import React, { useContext } from 'react';
+import { TitleStyled, TitleWrapper, TrackListStyled, TableWrapper, TrackElementStyled, TableColumnTitleStyled, TableContent, LinkStyled } from './TrackList.styled.ts';
 import { formatDate, formatDuration, capitalizeText } from '../../utils/Podcast.utils.tsx';
 import { PodcastContext } from '../../context/Podcast.context.tsx';
 
@@ -31,8 +31,8 @@ export const TrackList = ({ trackList, id }: PropsType) => {
             </TableColumnTitleStyled>
           </thead>
           <tbody>
-            {trackList?.map((track) => (
-              <tr>
+            {trackList?.map((track, i) => (
+              <tr key={i}>
                 <TrackElementStyled>
                   <LinkStyled onClick={() => handleNavigation(id, track)}>{capitalizeText(track.title)}</LinkStyled>
                 </TrackElementStyled>

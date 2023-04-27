@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PodcastContext from '../../context/Podcast.context.tsx';
 import { Card } from '../../components/Card/Card.tsx';
-import { CounterStyled, SectionStyled, ListStyled } from './Landing.styled.ts';
+import { CounterStyled, SectionStyled, ListStyled, InputStyled } from './Landing.styled.ts';
 import { UseAsyncInformation } from '../../hooks/useAsyncInformation.ts';
 
 function App() {
@@ -30,12 +30,12 @@ function App() {
     <div>
       <main>
         <SectionStyled>
-          <CounterStyled>{data?.length}</CounterStyled>
-          <input type="text" placeholder="Filter podcasts..." onChange={handleFilter} />
+          <CounterStyled>{podcasts?.length}</CounterStyled>
+          <InputStyled type="text" placeholder="Filter podcasts..." onChange={handleFilter} />
         </SectionStyled>
         <ListStyled>
-          {podcasts?.map((item) => (
-            <Card entry={item} />
+          {podcasts?.map((item, i) => (
+            <Card entry={item} key={i} />
           ))}
         </ListStyled>
       </main>
