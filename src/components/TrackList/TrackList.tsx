@@ -1,13 +1,21 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { TitleStyled, TitleWrapper, TrackListStyled, TableWrapper, TrackElementStyled, TableColumnTitleStyled, TableContent } from './TrackList.styled.ts';
-import { formatDate, formatDuration, capitalizeText } from '../../utils/Podcast.utils.ts';
+import { formatDate, formatDuration, capitalizeText } from '../../utils/Podcast.utils.tsx';
+import { PodcastContext } from '../../context/Podcast.context.tsx';
 
 type PropsType = {
   trackList: [{ title: string; summary: string; author: string; id: string; releaseDate: string; time: string }];
+  id: string;
 };
 
-export const TrackList = ({ trackList }: PropsType) => {
+export const TrackList = ({ trackList, id }: PropsType) => {
+  const { setCurrentTrack } = useContext(PodcastContext);
+
+  const handleNavigation = (id, track) => {
+    setCurrentTrack(track);
+    window.history.pushState({}, null, `/podcast/${id}/episode/${track.id}`);
+  };
+
   return (
     <TrackListStyled>
       <TitleWrapper>
@@ -26,7 +34,7 @@ export const TrackList = ({ trackList }: PropsType) => {
             {trackList?.map((track) => (
               <tr>
                 <TrackElementStyled>
-                  <Link to="">{capitalizeText(track.title)}</Link>
+                  <button onClick={() => handleNavigation(id, track)}>{capitalizeText(track.title)}</button>
                 </TrackElementStyled>
                 <TrackElementStyled>{formatDate(track.releaseDate)}</TrackElementStyled>
                 <TrackElementStyled>{formatDuration(track.time)}</TrackElementStyled>

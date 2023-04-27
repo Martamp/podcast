@@ -3,6 +3,7 @@ import React, { ReactNode, createContext, useContext, useState } from 'react';
 export type FunctionType = (...args: Array<any>) => any;
 export type PodcastContextType = {
   currentPodcast: any;
+  currentTrack: any;
   data: any;
   podcastDetail: [] | null;
   error: boolean;
@@ -12,6 +13,7 @@ export type PodcastContextType = {
   setError: FunctionType;
   setLoading: FunctionType;
   setPodcastDetail: FunctionType;
+  setCurrentTrack: FunctionType;
 };
 
 type Props = {
@@ -26,11 +28,13 @@ export const PodcastProvider = ({ children }: Props): JSX.Element => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [currentPodcast, setCurrentPodcast] = useState(null);
+  const [currentTrack, setCurrentTrack] = useState(null);
 
   return (
     <PodcastContext.Provider
       value={{
         currentPodcast,
+        currentTrack,
         data,
         podcastDetail,
         error,
@@ -40,6 +44,7 @@ export const PodcastProvider = ({ children }: Props): JSX.Element => {
         setError,
         setLoading,
         setPodcastDetail,
+        setCurrentTrack,
       }}
     >
       {children}

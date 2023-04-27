@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { parsedData, mapPodcastDetail } from '../utils/Podcast.utils.ts';
+import { parsedData, mapPodcastDetail } from '../utils/Podcast.utils.tsx';
 import PodcastContext from '../context/Podcast.context.tsx';
 
 export const UseAsyncInformation = () => {

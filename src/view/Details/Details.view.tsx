@@ -5,11 +5,12 @@ import PodcastContext from '../../context/Podcast.context.tsx';
 import { PodcastDetail } from '../../components/PodcastDetail/PodcastDetail.tsx';
 import { TrackList } from '../../components/TrackList/TrackList.tsx';
 import { OverviewStyled } from './Details.styled.ts';
+import { TrackDetail } from '../../components/TrackDetail/TrackDetail.tsx';
 
 export const DetailsView = () => {
   const { id } = useParams();
   const { getPodcastDetail } = UseAsyncInformation();
-  const { currentPodcast, podcastDetail } = useContext(PodcastContext);
+  const { currentPodcast, podcastDetail, currentTrack } = useContext(PodcastContext);
 
   useEffect(() => {
     if (id !== podcastDetail?.id) {
@@ -22,7 +23,7 @@ export const DetailsView = () => {
       {podcastDetail && (
         <OverviewStyled>
           <PodcastDetail currentPodcast={currentPodcast} />
-          <TrackList trackList={podcastDetail} />
+          {currentTrack ? <TrackDetail currentTrack={currentTrack} /> : <TrackList trackList={podcastDetail} id={id} />}
         </OverviewStyled>
       )}
     </>
