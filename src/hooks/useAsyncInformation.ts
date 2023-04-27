@@ -6,7 +6,7 @@ export const UseAsyncInformation = () => {
   const { setData, setPodcastDetail, setError } = useContext(PodcastContext);
 
   const getPodcastList = async () => {
-    await fetch('https://itunes.apple.com/us/rss/toppodcasts/limit/=100/genre=1310/json')
+    await fetch('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
       .then((response) => response.json())
       .then((data) => setData(parsedData(data.feed.entry)))
       .catch((err: any) => {

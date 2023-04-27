@@ -10,19 +10,20 @@ import { TrackDetail } from '../../components/TrackDetail/TrackDetail.tsx';
 export const DetailsView = () => {
   const { id } = useParams();
   const { getPodcastDetail } = UseAsyncInformation();
-  const { currentPodcast, podcastDetail, currentTrack } = useContext(PodcastContext);
+  const { currentPodcast, podcastDetail, currentTrack, setCurrentTrack } = useContext(PodcastContext);
 
   useEffect(() => {
     if (id !== podcastDetail?.id) {
       getPodcastDetail(id);
     }
+    setCurrentTrack(null);
   }, [id]);
 
   return (
     <>
       {podcastDetail && (
         <OverviewStyled>
-          <PodcastDetail currentPodcast={currentPodcast} />
+          <PodcastDetail currentPodcast={currentPodcast} setCurrentTrack={setCurrentTrack} />
           {currentTrack ? <TrackDetail currentTrack={currentTrack} /> : <TrackList trackList={podcastDetail} id={id} />}
         </OverviewStyled>
       )}

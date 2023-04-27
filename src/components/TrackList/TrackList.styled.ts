@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const ListStyled = styled.ul`
+export const ListStyled = styled.p`
   display: inline-block;
 `;
 
@@ -57,4 +58,8 @@ export const TrackElementStyled = styled.td`
 export const TableColumnTitleStyled = styled.tr`
   text-align: left;
   background-color: white;
+`;
+
+export const LinkStyled = styled.a`
+  cursor: pointer;
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ImageStyled = styled.img`
   width: 200px;
@@ -27,7 +28,7 @@ export const InformationWrapper = styled.p`
 export const PodcastWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  max-width: 300px;
   height: fit-content;
   padding: 20px;
   box-shadow: 0 0 10px 5px #d5d5d5;
@@ -38,4 +39,11 @@ export const PodcastWrapper = styled.div`
 export const DescriptionStyled = styled.p`
   word-wrap: break-word;
   margin: 8px 0 0;
+`;
+
+export const LinkStyled = styled(Link)`
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
 `;

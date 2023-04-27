@@ -12,7 +12,7 @@ export const HeaderStyled = styled.header`
 
 export const TitleStyled = styled.h1`
   color: ${titleColor};
-  text-weight: 800;
+  font-weight: 600;
 `;
 
 export const LoadingStyled = styled.div`
