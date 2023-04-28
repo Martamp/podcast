@@ -19,35 +19,33 @@ export const TrackList = ({ trackList, id }: PropsType): JSX.Element => {
 
   return (
     <>
-      {!loading && (
-        <TrackListStyled>
-          <TitleWrapper>
-            <TitleStyled>Episodes: {trackList.length} </TitleStyled>
-          </TitleWrapper>
-          <TableContent>
-            <TableWrapper>
-              <thead>
-                <TableColumnTitleStyled>
-                  <th>Title</th>
-                  <th>Date</th>
-                  <th>Duration</th>
-                </TableColumnTitleStyled>
-              </thead>
-              <tbody>
-                {trackList?.map((track, i) => (
-                  <tr key={i}>
-                    <TrackElementStyled>
-                      <LinkStyled onClick={() => handleNavigation(id, track)}>{capitalizeText(track.title)}</LinkStyled>
-                    </TrackElementStyled>
-                    <TrackElementStyled>{formatDate(track.releaseDate)}</TrackElementStyled>
-                    <TrackElementStyled>{formatDuration(track.time)}</TrackElementStyled>
-                  </tr>
-                ))}
-              </tbody>
-            </TableWrapper>
-          </TableContent>
-        </TrackListStyled>
-      )}
+      <TrackListStyled>
+        <TitleWrapper>
+          <TitleStyled>Episodes: {trackList.length} </TitleStyled>
+        </TitleWrapper>
+        <TableContent>
+          <TableWrapper>
+            <thead>
+              <TableColumnTitleStyled>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Duration</th>
+              </TableColumnTitleStyled>
+            </thead>
+            <tbody>
+              {trackList?.map((track, i) => (
+                <tr key={i}>
+                  <TrackElementStyled>
+                    <LinkStyled onClick={() => handleNavigation(id, track)}>{capitalizeText(track.title)}</LinkStyled>
+                  </TrackElementStyled>
+                  <TrackElementStyled>{formatDate(track.releaseDate)}</TrackElementStyled>
+                  <TrackElementStyled>{formatDuration(track.time)}</TrackElementStyled>
+                </tr>
+              ))}
+            </tbody>
+          </TableWrapper>
+        </TableContent>
+      </TrackListStyled>
     </>
   );
 };

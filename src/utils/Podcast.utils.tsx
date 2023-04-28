@@ -43,8 +43,9 @@ export const formatDuration = (duration) => {
 
   const hasHours = hours ? `${hours}:` : '';
   const formattedtime = `${hasHours}${remainingMinutes}:${hasSeconds}`;
+  const finalTime = isNaN(mins) || isNaN(secs) || isNaN(hours) ? '--' : formattedtime;
 
-  return formattedtime;
+  return finalTime;
 };
 
 export const capitalizeText = (text: string) => text.toLowerCase().replace(/\b\w/g, (match) => match.toUpperCase());
