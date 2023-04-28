@@ -25,7 +25,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The file structure is going to be divided by the views defined in the PDF, common components will be in a scope parallel to the views folder in order to be accesible by any view that needs to use it.
 
-`src
+````src
 ├─ components
 | └─ Card
 | └─ TrackList
@@ -42,7 +42,7 @@ The file structure is going to be divided by the views defined in the PDF, commo
 | └─ Landing
 | └─ Landing.styled.ts
 | └─ Landing.tsx
-└─ index`
+└─ index```
 
 ## Construido con :hammer_and_wrench:
 
@@ -56,3 +56,4 @@ The file structure is going to be divided by the views defined in the PDF, commo
 ## Desarrollado por :fountain_pen:
 
 Marta Montoro [Martamp](https://github.com/Martamp) :octocat:
+````
