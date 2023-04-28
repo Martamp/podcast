@@ -7,7 +7,7 @@ import { TrackList } from '../../components/TrackList/TrackList.tsx';
 import { OverviewStyled } from './Details.styled.ts';
 import { TrackDetail } from '../../components/TrackDetail/TrackDetail.tsx';
 
-export const DetailsView = () => {
+export const DetailsView = (): JSX.Element => {
   const { id } = useParams();
   const { getPodcastDetail } = UseAsyncInformation();
   const { currentPodcast, podcastDetail, currentTrack, setCurrentTrack } = useContext(PodcastContext);

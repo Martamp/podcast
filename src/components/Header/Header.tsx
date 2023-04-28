@@ -4,7 +4,7 @@ import PodcastContext from '../../context/Podcast.context.tsx';
 
 import { LoadingStyled, TitleStyled, HeaderStyled } from './Header.styled.ts';
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
   const { loading } = useContext(PodcastContext);
 
   return (

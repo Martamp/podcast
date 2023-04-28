@@ -2,13 +2,14 @@ import React from 'react';
 
 import { ImageStyled, TextStyled, PodcastWrapper, SubtitleStyled, InformationWrapper, DescriptionStyled, LinkStyled } from './PodcastDetail.styled.ts';
 import { FunctionType } from '../../context/Podcast.context.js';
+import { CurrentPodcastType } from '../../types/types.ts';
 
 type EntryType = {
-  currentPodcast: { image: string; title: string; summary: string; author: string; id: string };
+  currentPodcast: CurrentPodcastType;
   setCurrentTrack: FunctionType;
 };
 
-export const PodcastDetail = ({ currentPodcast, setCurrentTrack }: EntryType) => (
+export const PodcastDetail = ({ currentPodcast, setCurrentTrack }: EntryType): JSX.Element => (
   <PodcastWrapper>
     <LinkStyled to={`/podcast/${currentPodcast.id}`} onClick={() => setCurrentTrack(null)}>
       <ImageStyled src={currentPodcast.image} alt={currentPodcast.title} />

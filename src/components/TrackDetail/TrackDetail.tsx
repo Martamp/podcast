@@ -2,8 +2,13 @@ import React from 'react';
 
 import { TrackWrapper, DescriptionStyled } from './TrackDetail.styled.ts';
 import { renderTextWithLinks } from '../../utils/Podcast.utils.tsx';
+import { TrackType } from '../../types/types.ts';
 
-export const TrackDetail = ({ currentTrack }) => {
+type TrackDetailType = {
+  currentTrack: TrackType;
+};
+
+export const TrackDetail = ({ currentTrack }: TrackDetailType): JSX.Element => {
   return (
     <TrackWrapper>
       <h2>{currentTrack.title}</h2>

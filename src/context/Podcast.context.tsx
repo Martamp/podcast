@@ -1,11 +1,13 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
+import { PodcastType, CurrentPodcastType, TrackType } from '../types/types.ts';
 
 export type FunctionType = (...args: Array<any>) => any;
+
 export type PodcastContextType = {
-  currentPodcast: any;
-  currentTrack: any;
-  data: any;
-  podcastDetail: [] | null;
+  currentPodcast: CurrentPodcastType;
+  currentTrack: TrackType;
+  data: PodcastType[] | null;
+  podcastDetail: PodcastType[] | null;
   error: boolean;
   loading: boolean;
   setCurrentPodcast: FunctionType;

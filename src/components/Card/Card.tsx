@@ -5,10 +5,11 @@ import { ImageStyled, CardWrapper, CardText, TextStyled, LinkStyled, AuthorStyle
 type EntryType = {
   entry: { image: string; title: string; summary: string; author: string; id: string };
 };
+type HandlerType = () => void;
 
-export const Card = ({ entry }: EntryType) => {
+export const Card = ({ entry }: EntryType): JSX.Element => {
   const { setCurrentPodcast, currentPodcast } = useContext(PodcastContext);
-  const handlePodcastId = () => entry.id !== currentPodcast && setCurrentPodcast(entry);
+  const handlePodcastId: HandlerType = () => entry.id !== currentPodcast && setCurrentPodcast(entry);
 
   return (
     <CardWrapper key={entry.id}>

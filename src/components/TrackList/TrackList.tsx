@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { TitleStyled, TitleWrapper, TrackListStyled, TableWrapper, TrackElementStyled, TableColumnTitleStyled, TableContent, LinkStyled } from './TrackList.styled.ts';
 import { formatDate, formatDuration, capitalizeText } from '../../utils/Podcast.utils.tsx';
 import { PodcastContext } from '../../context/Podcast.context.tsx';
+import { TrackType } from '../../types/types.ts';
 
 type PropsType = {
-  trackList: [{ title: string; summary: string; author: string; id: string; releaseDate: string; time: string }];
+  trackList: TrackType[];
   id: string;
 };
 
-export const TrackList = ({ trackList, id }: PropsType) => {
+export const TrackList = ({ trackList, id }: PropsType): JSX.Element => {
   const { setCurrentTrack } = useContext(PodcastContext);
 
   const handleNavigation = (id, track) => {
