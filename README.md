@@ -2,6 +2,10 @@
 
 App to filter the most viewd podcast from iTunes API.
 
+## Desarrollado por :fountain_pen:
+
+Marta Montoro [Martamp](https://github.com/Martamp) :octocat:
+
 # Getting Started with the project
 
 ## Available Scripts
@@ -20,6 +24,15 @@ You may also see any lint errors in the console ot chek the typescript errors in
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance and gets it ready to deploy.
+
+## Construido con :hammer_and_wrench:
+
+1. **Visual Studio Code** - Editor de código.
+2. **Typescript** - Lenguaje de programación.
+3. **React** - Framework para el desarollo de la interfaz.
+4. **Git** - Para el control de versiones.
+5. **Github** - Como repositorio remoto.
+6. **Styled components** - Para añadir estilos.
 
 ## Code structure
 
@@ -44,16 +57,4 @@ The file structure is going to be divided by the views defined in the PDF, commo
 | └─ Landing.tsx
 └─ index```
 
-## Construido con :hammer_and_wrench:
-
-1. **Visual Studio Code** - Editor de código.
-2. **Typescript** - Lenguaje de programación.
-3. **React** - Framework para el desarollo de la interfaz.
-4. **Git** - Para el control de versiones.
-5. **Github** - Como repositorio remoto.
-6. **Styled components** - Para añadir estilos.
-
-## Desarrollado por :fountain_pen:
-
-Marta Montoro [Martamp](https://github.com/Martamp) :octocat:
 ````
