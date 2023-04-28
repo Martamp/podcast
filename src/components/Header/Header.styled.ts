@@ -5,6 +5,7 @@ const titleColor = '#347d96';
 export const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0.5rem 2rem;
   border: 1px solid #f4f4f4;
   border-width: 0 0 1px 0;

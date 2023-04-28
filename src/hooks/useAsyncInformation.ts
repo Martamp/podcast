@@ -4,22 +4,26 @@ import PodcastContext from '../context/Podcast.context.tsx';
 import { getDataFromLocalStorage, saveDataToLocalStorage } from '../utils/LocalStorage.utils.tsx';
 
 export const UseAsyncInformation = () => {
-  const { setData, setPodcastDetail, setError } = useContext(PodcastContext);
+  const { setData, setPodcastDetail, setError, loading, setLoading } = useContext(PodcastContext);
 
   const getPodcastList = async () => {
     const cachedData = getDataFromLocalStorage('podcastList', 24);
+
     if (cachedData) {
       setData(cachedData);
-      return;
+      setLoading(false);
     }
+    setLoading(true);
 
     await fetch('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
       .then((response) => response.json())
       .then((data) => {
         setData(parsedData(data.feed.entry));
         saveDataToLocalStorage('podcastList', parsedData(data.feed.entry));
+        setLoading(false);
       })
       .catch((err: any) => {
+        setLoading(false);
         setError(err);
         console.log('Ha habido un error: ', err);
       });
@@ -27,9 +31,11 @@ export const UseAsyncInformation = () => {
 
   const getPodcastDetail = async (id: string) => {
     const cachedData = getDataFromLocalStorage(`podcastDetail-${id}`, 24);
+    setLoading(true);
+
     if (cachedData) {
       setPodcastDetail(cachedData);
-      return;
+      setLoading(false);
     }
 
     await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}&entity=podcastEpisode&limit=20`)}`)
@@ -38,8 +44,12 @@ export const UseAsyncInformation = () => {
         const mappedData = mapPodcastDetail(data);
         setPodcastDetail(mappedData);
         saveDataToLocalStorage(`podcastDetail-${id}`, mappedData);
+        setLoading(false);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   return {
