@@ -1,8 +1,8 @@
-# Podcast app :information_desk_person:
+# Podcast app
 
 App to filter the most viewd podcast from iTunes API.
 
-## Desarrollado por :fountain_pen:
+## Developed by :fountain_pen:
 
 Marta Montoro [Martamp](https://github.com/Martamp) :octocat:
 
